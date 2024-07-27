@@ -43,10 +43,9 @@ def query_pool():
 def calculate_quantile(values, percentile):
     """Calculate the quantile manually if less than 100 values."""
     sorted_values = sorted(values)
-    rank = (len(sorted_values) - 1) * percentile / 100
-    floor = int(rank)
-    fractional = rank - floor
-    print(pools)
+    position = (len(sorted_values) - 1) * percentile / 100
+    floor = int(position)
+    fractional = position - floor
     if floor + 1 < len(sorted_values):
         return sorted_values[floor] + (sorted_values[floor + 1] - sorted_values[floor]) * fractional
     else:
